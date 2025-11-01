@@ -2,6 +2,7 @@ package br.edu.ifrn.bancosangue.controllers;
 
 import br.edu.ifrn.bancosangue.domain.entities.Doador;
 import br.edu.ifrn.bancosangue.services.DoadorService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class DoadorController {
     }
 
     @PostMapping
-    public Doador createDoador(@RequestBody Doador doador) {
+    public Doador createDoador(@Valid @RequestBody Doador doador) {
         return doadorService.criarDoador(doador);
     }
 
@@ -31,6 +32,10 @@ public class DoadorController {
         return doadorService.atualizarDoador(id, dadosAtualizados);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteDoador(@PathVariable Long id) {
+        doadorService.deletarDoador(id);
+    }
 
 
 }
