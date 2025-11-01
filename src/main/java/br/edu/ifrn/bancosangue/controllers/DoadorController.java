@@ -1,5 +1,6 @@
 package br.edu.ifrn.bancosangue.controllers;
 
+import br.edu.ifrn.bancosangue.controllers.docs.DoadorApiDoc;
 import br.edu.ifrn.bancosangue.domain.entities.Doador;
 import br.edu.ifrn.bancosangue.services.DoadorService;
 import jakarta.validation.Valid;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/doadores")
-public class DoadorController {
+public class DoadorController implements DoadorApiDoc {
 
     private final DoadorService doadorService;
 
@@ -25,6 +26,11 @@ public class DoadorController {
     @GetMapping
     public List<Doador> getAllDoadores() {
         return doadorService.listaDoadores();
+    }
+
+    @Override
+    public Doador getDoadorById(Long id) {
+        return doadorService.obterDoadorPorId(id);
     }
 
     @PutMapping("/{id}")
