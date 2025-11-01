@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DoadorRepository extends JpaRepository<Doador, Long> {
 
+    boolean existsByCpf(String cpf);
+    Doador findByCpf(String cpf);
 }

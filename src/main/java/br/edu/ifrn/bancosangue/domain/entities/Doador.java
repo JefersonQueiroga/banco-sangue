@@ -23,8 +23,10 @@ public class Doador {
     @Column(name = "nome_completo", nullable = false)
     private String nomeCompleto;
 
-    @Column(name = "cpf", nullable = false, length = 11)
+    @Column(name = "cpf", nullable = false, length = 11 , unique = true)
     private String cpf;
+
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
     @Enumerated(EnumType.STRING)
@@ -34,6 +36,8 @@ public class Doador {
 
     @Column(name = "ativo", nullable = false)
     private Boolean ativo;
+
+    @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
 
     @CreatedDate
