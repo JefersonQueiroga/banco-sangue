@@ -28,8 +28,8 @@ public class DoadorController implements DoadorApiDoc {
         return doadorService.listaDoadores();
     }
 
-    @Override
-    public Doador getDoadorById(Long id) {
+    @GetMapping("/{id}")
+    public Doador getDoadorById(@PathVariable Long id) {  // ← ADICIONE @PathVariable
         return doadorService.obterDoadorPorId(id);
     }
 

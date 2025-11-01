@@ -3,14 +3,9 @@ package br.edu.ifrn.bancosangue.controllers.docs;
 import br.edu.ifrn.bancosangue.domain.entities.Doador;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -26,7 +21,7 @@ public interface DoadorApiDoc {
             @ApiResponse(responseCode = "400", description = "Dados inválidos"),
             @ApiResponse(responseCode = "422", description = "Regra de negócio violada")
     })
-    Doador createDoador(@Valid @RequestBody(description = "Dados do doador") Doador doador);
+    Doador createDoador(Doador doador);
 
     @Operation(summary = "Listar todos os doadores")
     @ApiResponse(responseCode = "200", description = "Lista retornada com sucesso")
@@ -37,7 +32,7 @@ public interface DoadorApiDoc {
             @ApiResponse(responseCode = "200", description = "Doador encontrado"),
             @ApiResponse(responseCode = "422", description = "Doador não encontrado")
     })
-    Doador getDoadorById(@Parameter(description = "ID do doador") @PathVariable Long id);
+    Doador getDoadorById(@Parameter(description = "ID do doador") Long id);
 
     @Operation(summary = "Atualizar doador")
     @ApiResponses(value = {
@@ -45,8 +40,8 @@ public interface DoadorApiDoc {
             @ApiResponse(responseCode = "422", description = "Doador não encontrado")
     })
     Doador updateDoador(
-            @Parameter(description = "ID do doador") @PathVariable Long id,
-            @Valid @RequestBody(description = "Novos dados") Doador dadosAtualizados
+            @Parameter(description = "ID do doador") Long id,
+            Doador dadosAtualizados
     );
 
     @Operation(summary = "Deletar doador")
@@ -54,5 +49,5 @@ public interface DoadorApiDoc {
             @ApiResponse(responseCode = "204", description = "Doador deletado"),
             @ApiResponse(responseCode = "422", description = "Doador não encontrado")
     })
-    void deleteDoador(@Parameter(description = "ID do doador") @PathVariable Long id);
+    void deleteDoador(@Parameter(description = "ID do doador") Long id);
 }

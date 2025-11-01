@@ -1,6 +1,5 @@
 package br.edu.ifrn.bancosangue.exceptions;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
 public class BusinessException extends RuntimeException {
-
     public BusinessException(String message) {
         super(message);
     }

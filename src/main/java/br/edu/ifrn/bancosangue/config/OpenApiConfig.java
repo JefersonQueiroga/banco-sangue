@@ -1,14 +1,9 @@
 package br.edu.ifrn.bancosangue.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
-import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 @Configuration
 public class OpenApiConfig {
@@ -19,18 +14,6 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("API Banco de Sangue")
                         .version("1.0.0")
-                        .description("API para gerenciamento de banco de sangue")
-                        .contact(new Contact()
-                                .name("Equipe IFRN")
-                                .email("jeferson.queiroga@ifrn.edu.br")
-                                .url("https://ifrn.edu.br"))
-                        .license(new License()
-                                .name("Apache 2.0")
-                                .url("https://www.apache.org/licenses/LICENSE-2.0.html")))
-                .servers(List.of(
-                        new Server()
-                                .url("http://localhost:8080")
-                                .description("Servidor de Desenvolvimento")
-                ));
+                        .description("API para gerenciamento de banco de sangue"));
     }
 }
