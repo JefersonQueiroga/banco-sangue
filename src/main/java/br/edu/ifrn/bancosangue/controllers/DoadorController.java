@@ -29,12 +29,13 @@ public class DoadorController implements DoadorApiDoc {
     }
 
     @Override
+    @GetMapping("/{id}")
     public Doador getDoadorById(Long id) {
         return doadorService.obterDoadorPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Doador updateDoador(@PathVariable Long id, @RequestBody Doador dadosAtualizados) {
+    public Doador updateDoador(@PathVariable Long id, @Valid @RequestBody Doador dadosAtualizados) {
         return doadorService.atualizarDoador(id, dadosAtualizados);
     }
 
