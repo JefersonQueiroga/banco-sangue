@@ -2,10 +2,12 @@ package br.edu.ifrn.bancosangue.controllers;
 
 import br.edu.ifrn.bancosangue.controllers.docs.DoadorApiDoc;
 import br.edu.ifrn.bancosangue.domain.entities.Doador;
+import br.edu.ifrn.bancosangue.domain.entities.EnderecoDoador;
+import br.edu.ifrn.bancosangue.dtos.EnderecoDoadorDTO;
 import br.edu.ifrn.bancosangue.services.DoadorService;
+import br.edu.ifrn.bancosangue.services.EnderecoService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -13,9 +15,12 @@ import java.util.List;
 public class DoadorController implements DoadorApiDoc {
 
     private final DoadorService doadorService;
+    private final EnderecoService enderecoService;
 
-    public DoadorController(DoadorService doadorService) {
+
+    public DoadorController(DoadorService doadorService, EnderecoService enderecoService) {
         this.doadorService = doadorService;
+        this.enderecoService = enderecoService;
     }
 
     @PostMapping
@@ -44,5 +49,12 @@ public class DoadorController implements DoadorApiDoc {
         doadorService.deletarDoador(id);
     }
 
+
+    // Endereço endpoints /api/doadores/{doadorId}/enderecos
+    @PostMapping("/{doadorId}/enderecos")
+    public EnderecoDoadorDTO adicionarEndereco(@PathVariable Long doadorId,
+                                            @Valid @RequestBody EnderecoDoadorDTO enderecoDTO) {
+        return enderecoService.criarEndereco(doadorId, enderecoDTO);
+    }
 
 }
