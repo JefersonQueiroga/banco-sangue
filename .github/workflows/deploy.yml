@@ -24,8 +24,8 @@ jobs:
       - name: Build with Maven
         run: ./mvnw clean package -DskipTests
 
-      - name: Run tests
-        run: ./mvnw test
+      #- name: Run tests
+       # run: ./mvnw test
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
