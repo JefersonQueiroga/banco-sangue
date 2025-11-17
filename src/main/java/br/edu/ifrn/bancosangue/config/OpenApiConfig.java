@@ -35,7 +35,7 @@ public class OpenApiConfig {
                         .title("API Banco de Sangue")
                         .version("1.0.0")
                         .description("""
-                                API REST para gerenciamento de banco de sangue.
+                                API REST para gerenciamento de banco de sangue - IFRN.
                                 
                                 Funcionalidades principais:
                                 - Cadastro e gestão de doadores
