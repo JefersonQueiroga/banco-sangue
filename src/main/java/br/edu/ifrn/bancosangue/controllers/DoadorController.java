@@ -7,6 +7,7 @@ import br.edu.ifrn.bancosangue.dtos.EnderecoDoadorDTO;
 import br.edu.ifrn.bancosangue.services.DoadorService;
 import br.edu.ifrn.bancosangue.services.EnderecoService;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class DoadorController implements DoadorApiDoc {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'MEDICO', 'ATENDENTE')")
     public Doador createDoador(@Valid @RequestBody Doador doador) {
         return doadorService.criarDoador(doador);
     }
