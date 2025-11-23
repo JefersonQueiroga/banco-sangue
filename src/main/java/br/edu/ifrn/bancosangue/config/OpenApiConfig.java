@@ -49,10 +49,10 @@ public class OpenApiConfig {
 
                                 **Como usar:**
                                 1. Faça login no endpoint `/api/auth/login` ou registre-se em `/api/auth/register`
-                                2. Copie o `access_token` retornado na resposta
-                                3. Clique no botão "Authorize" 🔓 no topo desta página
+                                2. Copie o `access_token` 
+                                3. Clique no botão "Authorize" no topo desta página
                                 4. Cole o token no campo e clique em "Authorize"
-                                5. Agora você pode testar os endpoints protegidos!
+                                
 
                                 ## Funcionalidades principais
                                 - Autenticação e autorização de usuários
